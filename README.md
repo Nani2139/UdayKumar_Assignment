@@ -43,38 +43,18 @@ description: String
 status: String (e.g., "Open", "Resolved")
 scheduled_at: DateTime
 
-Database Schema Diagram
-+----------------+       +-----------------+       +-----------------+
-|    Users       |       |   Customers     |       |  Interactions   |
-+----------------+       +-----------------+       +-----------------+
-| _id: ObjectID  |       | _id: ObjectID   |       | _id: ObjectID   |
-| name: String   |       | name: String    |       | user_id: ObjectID|
-| email: String  |       | email: String   |       | customer_id: ObjectID|
-| password: String|      | company: String |       | type: String     |
-| company: String|       | status: String  |       | description: String|
-| status: String |       +-----------------+       | status: String   |
-+----------------+                                | scheduled_at: DateTime|
-                                                  +-----------------+
-4. System Architecture
-Overview
-The system is built as a RESTful API with three main entities: Users, Customers, and Interactions. Each entity has its own set of CRUD operations, and the system is secured using JWT for authentication.System Architecture Diagram
-+-----------------+       +-------------------+       +-------------------+
-|   Client        |       |     API Server    |       |   MongoDB         |
-|  (Postman/Browser)|----->|   (Go + Gin)     |<----->|    Database       |
-+-----------------+       +-------------------+       +-------------------+
-                                |  |  |
-                                |  |  +--------------------+
-                                |  +--> JWT Authentication |
-                                +-------------------------+
+4. System Architecture Overview
+The system is built as a RESTful API with three main entities: Users, Customers, and Interactions. Each entity has its own set of CRUD operations, and the system is secured using JWT for authentication.
+
 Key Components:
 Client: The front-end client or Postman used to make HTTP requests to the API.
 API Server: The backend server running the Go application using the Gin framework. It handles the business logic and communicates with the database.
 MongoDB: The database that stores the data for users, customers, and interactions.
 
-5. API Documentation
+6. API Documentation
 For detailed information on each API endpoint, refer to the API Documentation.
 
-6. Setup and Installation
+7. Setup and Installation
 ###Prerequisites:
 -Go installed on your machine.
 -MongoDB instance running locally or on MongoDB Atlas.
